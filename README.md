@@ -19,9 +19,13 @@ No special requirements; note that this role requires root access, so either run
 
 ## Installation
 
-At the moment, the role has not (yet) bin submitted to the Ansible Galaxy repository, so installation from GitHub is currently the only way.
+### Via Github
     
     ansible-galaxy install git+https://github.com/nightshift2k/ansible-role-freqtrade.git
+    
+### From Ansible Galaxy
+
+    ansible-galaxy install nightshift2k.freqtrade
 
 ## Role Variables
 
