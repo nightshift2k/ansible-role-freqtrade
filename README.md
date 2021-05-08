@@ -1,4 +1,4 @@
-# Ansible Role: Frqtrade
+# Ansible Role: Freqtrade
 
 Installs [Freqtrade](https://www.freqtrade.io) on Debian/Ubuntu based systems.
 
