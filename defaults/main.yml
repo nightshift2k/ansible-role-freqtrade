@@ -1,0 +1,20 @@
+---
+# installation directory
+freqtrade_installation_directory: "/opt/freqtrade"
+
+# branch from github
+freqtrade_branch: "stable"
+
+# install development dependencies
+freqtrade_install_dev_deps: false 
+
+# install plotting dependencies
+freqtrade_install_plot_deps: false
+
+# install hyperopt dependencies
+freqtrade_install_hyperopt_deps: true 
+
+# install custom additional pips
+freqtrade_install_additional_pips:
+  - finta
+  - ta

@@ -1,0 +1,15 @@
+---
+__prerequisite_packages:
+  - jq
+  - moreutils
+  - git
+  - python3-pip 
+  - python3-venv
+  - python3-pandas
+  - python3-pip
+  - build-essential
+  - autoconf
+  - libtool
+  - pkg-config
+  - make
+  - wget

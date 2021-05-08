@@ -1,0 +1,22 @@
+---
+- name: 'checkout & install freqtrade'
+  block:
+    - name: 'checkout freqtrade from github'
+      git: 
+        repo: https://github.com/freqtrade/freqtrade.git
+        dest:  "{{ freqtrade_installation_directory }}"
+        version: "{{ freqtrade_branch }}"
+        force: true
+
+    - name: 'run freqtrade setup.sh --install'
+      shell: bash -c 'echo "y\nn\nn\ny\n" | ./setup.sh --install'
+      args:
+        chdir: "{{ freqtrade_installation_directory }}"
+      register: freqtrade_install
+
+    - name: 'create freqtrade user_data directory'
+      shell: /bin/bash -ic 'source .env/bin/activate; python3 -m freqtrade create-userdir --userdir user_data/'
+      args:
+        chdir: "{{ freqtrade_installation_directory }}"
+        
+  when: freqtrade_is_installed is defined and not freqtrade_is_installed.stat.exists|bool

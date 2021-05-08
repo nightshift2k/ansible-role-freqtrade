@@ -1,0 +1,11 @@
+---
+- name: check if freqtrade is already installed
+  stat:
+    path: "{{ freqtrade_installation_directory }}/.env/bin/freqtrade"
+  register: freqtrade_is_installed
+  
+- name: check if freqtrade setup.sh exists installed
+  stat:
+    path: "{{ freqtrade_installation_directory }}/setup.sh"
+  register: freqtrade_setup_exists
+    

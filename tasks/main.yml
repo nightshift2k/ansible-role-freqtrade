@@ -1,0 +1,22 @@
+---
+# Variable configuration.
+- include_tasks: variables.yml
+
+# OS specific prerequisites - currently debian / ubuntu only
+- include_tasks: prerequisites-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+# prechecks
+- include_tasks: precheck.yml
+
+# freqtrade installation
+- include_tasks: install.yml
+
+# freqtrade upgrade
+- include_tasks: upgrade.yml
+
+# python packages 
+- include_tasks: pips.yml
+
+# postinstall tasks
+- include_tasks: postinstall.yml

@@ -1,0 +1,9 @@
+---
+- name: 'run freqtrade setup.sh --update'
+  throttle: 1
+  shell: bash -c 'echo "y\nn\nn\ny\n" | ./setup.sh --update'
+  args:
+    chdir: "{{ freqtrade_installation_directory }}"
+  register: freqtrade_install
+  when: freqtrade_is_installed is defined and freqtrade_is_installed.stat.exists|bool and freqtrade_setup_exists is defined and freqtrade_setup_exists.stat.exists|bool
+  

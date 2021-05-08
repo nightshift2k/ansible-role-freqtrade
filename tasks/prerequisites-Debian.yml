@@ -1,0 +1,8 @@
+---
+- name: Ensure necessary packages are installed
+  apt:
+    name:  "{{ prerequisite_packages }}"
+    state: present
+    update_cache: true
+  register: deb_prerequisite_install_packages
+  

@@ -1,0 +1,24 @@
+---
+- name: installing dev dependencies
+  shell: /bin/bash -ic 'source .env/bin/activate; python3 -m pip install --upgrade -r requirements-dev.txt'
+  args:
+    chdir: "{{ freqtrade_installation_directory }}"
+  when: freqtrade_install_dev_deps|bool
+
+- name: installing plotting dependencies (plotly)
+  shell: /bin/bash -ic 'source .env/bin/activate; python3 -m pip install --upgrade -r requirements-plot.txt'
+  args:
+    chdir: "{{ freqtrade_installation_directory }}"
+  when: freqtrade_install_plot_deps|bool
+
+- name: installing hyperopt dependencies
+  shell: /bin/bash -ic 'source .env/bin/activate; python3 -m pip install --upgrade -r requirements-hyperopt.txt'
+  args:
+    chdir: "{{ freqtrade_installation_directory }}"
+  when: freqtrade_install_hyperopt_deps|bool
+
+- name: installing custom dependencies
+  shell: /bin/bash -ic 'source .env/bin/activate; python3 -m pip install --upgrade {{ freqtrade_install_additional_pips | join(' ') }}'
+  args:
+    chdir: "{{ freqtrade_installation_directory }}"
+  when: freqtrade_install_additional_pips is iterable
