@@ -2,7 +2,7 @@
 
 
 - name: 'get current freqtrade version'
-  shell: /bin/bash -ic 'source .env/bin/activate; python3 -m freqtrade --version'
+  shell: /bin/bash -ic 'source .venv/bin/activate; python3 -m freqtrade --version'
   register: freqtrade_version
   args:
     chdir: "{{ freqtrade_installation_directory }}"
